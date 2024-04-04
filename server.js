@@ -15,7 +15,7 @@ app.post("/verify", async (req, res) => {
     const  email  = req.body.email;
     // console.log(req.body);
     // const email_code = email;
-    const url = `https://script.google.com/macros/s/AKfycbxjdBdeRZPAi8T0OgGl6bcq9OWwuFmB5B7i9wXeYmaAutnzWq4k66DHbb-aWpteV7Xtew/exec?email=${email}`;
+    const url = `https://script.google.com/macros/s/AKfycbw7WAK6ZuwIRfJXFNP1GUmFK-XZGIch-rjzpZqwKp6zUmqu8JAxMXjTLukFHngxL7Yaeg/exec?email=${email}`;
     // Send request to Google Apps Script using Axios
     const response = await axios.get(url);
     if (response.status !== 200) {
