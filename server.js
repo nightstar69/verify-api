@@ -2,7 +2,7 @@
 
 const express = require("express");
 const axios = require("axios");
-const nodemon = require("nodemon");
+// const nodemon = require("nodemon");
 const app = express();
 const port = 3000;
 
@@ -14,7 +14,7 @@ app.post("/verify", async (req, res) => {
   try {
     const  email  = req.body.email;
     // console.log(req.body);
-    const email_code = email;
+    // const email_code = email;
     const url = `https://script.google.com/macros/s/AKfycbxjdBdeRZPAi8T0OgGl6bcq9OWwuFmB5B7i9wXeYmaAutnzWq4k66DHbb-aWpteV7Xtew/exec?email=${email}`;
     // Send request to Google Apps Script using Axios
     const response = await axios.get(url);
@@ -23,12 +23,12 @@ app.post("/verify", async (req, res) => {
     }
     
     const data = response.data;
-    const userDetails = data.data[0]; // Extracting the first element from the data array
-    const { name, domain } = userDetails;
+    const userDetails = data.data; // Extracting the first element from the data array
+    // const { name, domain } = userDetails;
     
     // console.log('Email:', email);
-    console.log('Name:', name);
-    console.log('Domain:', domain);
+    // console.log('Name:', name);
+    // console.log('Domain:', domain);
     res.json(userDetails);
   } catch (error) {
     console.error("Error:", error.message);
